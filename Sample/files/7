@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>Exercise 7</title>
+  </head>
+  <body>
+    <ul> 
+      <li> A Few New England States:
+	<ul>
+	  <li> Vermont
+	  <li> New Hampshire
+	  <li> Maine
+	</ul>
+      <li> Two Midwestern States:
+	<ul>
+	  <li> Michigan
+	  <li> Indiana
+	</ul>
+    </ul>
+  </body>
+</html>

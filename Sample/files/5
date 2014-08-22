@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>Exercise 5</title>
+  </head>
+  <body>
+    <dl>
+      <dt> NCSA
+      <dd> NCSA, the National Center for Supercomputing
+	   Applications, is located on the campus of the
+	   University of illinois at Urbana-Champaign.
+      <dt> Cornell Theary Center
+      <dd> CTC is located on the campus of Coronell
+	   University in Ithaca, New York.
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>Exercise 8</title>
+  </head>
+  <body>
+    <pre>
+      #l/bin/csh
+      cd $ SCR
+      cfs get myscr.f:mycfsdir/mysrc.f
+      cfs get myijnfile:mycfsdir/myinfile
+      fc-02-o mya.out mysrc.f
+      cfs sace myoutfile:mycfsdir/myout file
+      rm*
+    </pre>
+  </body>
+</html>

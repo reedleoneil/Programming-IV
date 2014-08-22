@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+	<!-- TemplateBeginEditable name="doctitle" -->
+	<title>YouBoard.com</title>
+	<meta name="description" content="Designed and developed by Codify Design Studio - codifydesign.com" />
+	<!-- TemplateEndEditable -->
+<link rel="stylesheet" type="text/css" href="../Design/Publish/stylesheet.css" />
+		<script src="../Design/Publish/SpryAssets/SpryMenuBar.js" type="text/javascript"></script>
+		<link href="../Design/Publish/SpryAssets/SpryMenuBarHorizontal.css" rel="stylesheet" type="text/css" />
+		<!-- TemplateBeginEditable name="head" -->
+		<!-- TemplateEndEditable -->
+	</head>
+	<body>
+	
+		<div class="bannerArea">
+			<div class="container">
+				<div class="bannernav"></div>
+				<div class="toplogo"><a href="#"><a href="#"><a href="#"></a><a href="#"><img src="../Design/Publish/images/prime_logo.png" width="202" height="48" border="0" /></a></div>
+				<div style="clear:both;"></div>
+			</div>
+		</div>
+		<div class="topnavigationArea">
+			<div class="container"> 
+				<div class="topnavigationgroup">
+					<ul id="MenuBar1" class="MenuBarHorizontal">
+						<li><a href="Index.main.html">Home Page</a></li>
+						<li><a href="Update.main.html">Update Your Profile</a></li>
+						<li><a href="GenDis.main.html">Videos</a></li>
+						<li style="border-right-style: solid;"><a href="../index.cfm">Log Out</a></li>
+					</ul>
+				</div>
+				<div style="clear:both;"></div>
+			</div>
+		</div>
+		<div class="contentArea">
+			<div class="container"><!-- TemplateBeginEditable name="content" -->
+				<div class="contentleft">
+					<h1>Update Profile</h1>
+                    <p>Show list of Users</p>
+<table border="1">
+  <tr>
+    <td><div align="center"><strong>USERID</strong></div></td>
+    <td><div align="center"><strong>USERNAME</strong></div></td>
+    <td><div align="center"><strong>PASSWORD</strong></div></td>
+    <td><div align="center"><strong>FIRST NAME</strong></div></td>
+    <td><div align="center"><strong>LAST NAME</strong></div></td>
+    <td><div align="center"><strong>ADDRESS</strong></div></td>
+    <td><div align="center"><strong>CONTACT NO.</strong></div></td>
+    <td><div align="center"><strong>PICTURE</strong></div></td>
+  </tr>
+  <cfoutput query="rsListUsers" startRow="#StartRow_rsListUsers#" maxRows="#MaxRows_rsListUsers#">
+    <tr>
+      <td>#rsListUsers.userid#</td>
+      <td>#rsListUsers.username#</td>
+      <td>#rsListUsers.password#</td>
+      <td>#rsListUsers.fname#</td>
+      <td>#rsListUsers.lname#</td>
+      <td>#rsListUsers.address#</td>
+      <td>#rsListUsers.contact#</td>
+      <td><img src="#rsListUsers.pictures#" width="70" height="40" longdesc="#rsListUsers.fname#" /></td>
+    </tr>
+  </cfoutput>
+</table>
+<p>&nbsp;
+<table border="0">
+  <cfoutput>
+    <tr>
+      <td><cfif PageNum_rsListUsers GT 1>
+        <a href="#CurrentPage#?PageNum_rsListUsers=1#QueryString_rsListUsers#"><img src="/FreeBoard/member/First.gif" border="0" /></a>
+      </cfif>
+      </td>
+      <td><cfif PageNum_rsListUsers GT 1>
+        <a href="#CurrentPage#?PageNum_rsListUsers=#Max(DecrementValue(PageNum_rsListUsers),1)##QueryString_rsListUsers#"><img src="/FreeBoard/member/Previous.gif" border="0" /></a>
+      </cfif>
+      </td>
+      <td><cfif PageNum_rsListUsers LT TotalPages_rsListUsers>
+        <a href="#CurrentPage#?PageNum_rsListUsers=#Min(IncrementValue(PageNum_rsListUsers),TotalPages_rsListUsers)##QueryString_rsListUsers#"><img src="/FreeBoard/member/Next.gif" border="0" /></a>
+      </cfif>
+      </td>
+      <td><cfif PageNum_rsListUsers LT TotalPages_rsListUsers>
+        <a href="#CurrentPage#?PageNum_rsListUsers=#TotalPages_rsListUsers##QueryString_rsListUsers#"><img src="/FreeBoard/member/Last.gif" border="0" /></a>
+      </cfif>
+      </td>
+    </tr>
+  </cfoutput>
+</table>
+</p>
+<p>&nbsp;</p>
+<p>Update my profile</p>
+<form action="<cfoutput>#CurrentPage#</cfoutput>" method="post" name="form2" id="form2">
+  <table align="center">
+    <tr valign="baseline">
+      <td nowrap="nowrap" align="right">Username:</td>
+      <td><input type="text" name="username" value="<cfoutput>#rsListUsers.username#</cfoutput>" size="32" /></td>
+    </tr>
+    <tr valign="baseline">
+      <td nowrap="nowrap" align="right">Password:</td>
+      <td><input type="password" name="password" value="<cfoutput>#rsListUsers.password#</cfoutput>" size="32" /></td>
+    </tr>
+    <tr valign="baseline">
+      <td nowrap="nowrap" align="right">Fname:</td>
+      <td><input type="text" name="fname" value="<cfoutput>#rsListUsers.fname#</cfoutput>" size="32" /></td>
+    </tr>
+    <tr valign="baseline">
+      <td nowrap="nowrap" align="right">Lname:</td>
+      <td><input type="text" name="lname" value="<cfoutput>#rsListUsers.lname#</cfoutput>" size="32" /></td>
+    </tr>
+    <tr valign="baseline">
+      <td nowrap="nowrap" align="right">Address:</td>
+      <td><input type="text" name="address" value="<cfoutput>#rsListUsers.address#</cfoutput>" size="32" /></td>
+    </tr>
+    <tr valign="baseline">
+      <td nowrap="nowrap" align="right">Contact:</td>
+      <td><input type="text" name="contact" value="<cfoutput>#rsListUsers.contact#</cfoutput>" size="32" /></td>
+    </tr>
+    <tr valign="baseline">
+      <td nowrap="nowrap" align="right">Pictures:</td>
+      <td><input type="text" name="pictures" value="<cfoutput>#rsListUsers.pictures#</cfoutput>" size="32" /></td>
+    </tr>
+    <tr valign="baseline">
+      <td nowrap="nowrap" align="right">&nbsp;</td>
+      <td><input type="submit" value="Update record" /></td>
+    </tr>
+  </table>
+  <input type="hidden" name="MM_UpdateRecord" value="form2" />
+  <input type="hidden" name="userid" value="<cfoutput>#rsListUsers.userid#</cfoutput>" />
+</form>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+				</div>
+			<!-- TemplateEndEditable -->
+			<div style="clear:both;"></div>
+			</div>
+		</div>
+		<div class="footerArea">
+			<div class="container"> 
+				<div class="copyright">&copy; 2013 You-Board.  All rights reserved.</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+		<!--
+		var MenuBar1 = new Spry.Widget.MenuBar("MenuBar1", {imgDown:"SpryAssets/SpryMenuBarDownHover.gif", imgRight:"SpryAssets/SpryMenuBarRightHover.gif"});
+		//-->
+		</script>
+	</body>
+</html>
